@@ -1,7 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Following functions serves for caching the inverse matrix
 
-## Write a short comment describing this function
+## This function creates a list of functions : get() - returns the value of matrix, setinv() - saves the value of inverse matrix
+## getinv() - returns the value of the inverse matrix
 
 makeCacheMatrix <- function(x = matrix()) {
    inv <- NULL
@@ -12,9 +12,10 @@ makeCacheMatrix <- function(x = matrix()) {
   list(get=get, setinv=setinv, getinv=getinv)
 }
 
-## Write a short comment describing this function
+## This function by calling functions from list a, verifies if the inverse was computed before, if not it does it. As an output
+## it returs the value of the inverse matrix 
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(a, ...) {
   inv <- a$getinv()
   if (! is.null(inv)) return(inv)
   Matrix <- a$get()
